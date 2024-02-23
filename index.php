@@ -1,7 +1,7 @@
 <?php
 
 // Incluí arquivo de conexão
-require 'conection.php';
+require 'Connection.php';
 
 // Incluí arquivo de inserção
 include_once 'create.php';
