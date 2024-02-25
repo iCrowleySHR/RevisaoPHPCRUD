@@ -1,5 +1,6 @@
 <?php
 // ============================= Inserção =============================
+// Usando STATIC FUNCTION
 class Create
 {
     // Método para inserir na tabela departamento
@@ -45,8 +46,8 @@ $cargos = [
     'cargo1' => "dono",
     'cargo2' => "CEO",
     'cargo3' => "Ex-Dono",
-    'cargo4' => "Esposa do Dono",
-    'cargo5' => "Funcionario"
+    'cargo4' => "Esposa do dono",
+    'cargo5' => "Gerente de Projeto"
 ];
 foreach ($cargos as $cargo) {
     Create::insertCargo($cargo);
