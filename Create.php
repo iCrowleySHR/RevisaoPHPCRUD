@@ -54,9 +54,9 @@ foreach ($cargos as $cargo) {
 
 //====================================================================================
 //  Inserção utilizando método prepare(), com validação por meio de bindValue()
-Create::insertFuncionario("123456", "11122233344", "João Silva", "1122334455", "Rua A, 123", "1", "1");
+Create::insertFuncionario("123456", "11122233344", "Milton Neves", "1122334455", "Rua A, 123", "1", "1");
 Create::insertFuncionario("654321", "55544433322", "Maria Oliveira", "9988776655", "Avenida B, 456", "2", "2");
 Create::insertFuncionario("987654", "99988877766", "Pedro Santos", "6677889900", "Travessa C, 789", "3", "1");
-Create::insertFuncionario("135792", "33322211100", "Ana Pereira", "5544332211", "Praça D, 1011", "2", "3");
-Create::insertFuncionario("246810", "77788899911", "Carla Souza", "3344556677", "Alameda E, 1213", "1", "2");
+Create::insertFuncionario("135792", "33322211100", "Rock Balboa", "5544332211", "Praça D, 1011", "2", "3");
+Create::insertFuncionario("246810", "77788899911", "Etelvina Hernandez", "3344556677", "Alameda E, 1213", "1", "2");
 
