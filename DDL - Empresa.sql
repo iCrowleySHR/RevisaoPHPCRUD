@@ -12,7 +12,7 @@ create table departamento(
 );
 
 create table funcionario(
-	funcional int(11) not null,
+	funcional int(11) not null primary key auto_increment,
     cpf char(11) not null unique,
     nome varchar(40) not null,
     telefone char(15) not null,

@@ -21,31 +21,19 @@ class Update
         $update->execute();
     }
 
-    // Método que muda a posição dos cargos
-    public function updatePosicaoCargo($oldId,$newId)
-    {
-        $update = Connection::$pdo->prepare("UPDATE cargo SET codCargo = :new WHERE codCargo = :old");
-        $update->bindValue(":old", $oldId);
-        $update->bindValue(":new", $newId);
-        $update->execute();
-    }
-
-    public function updatePosicaoFuncionario($oldId, $newId){
-        $update = Connection::$pdo->prepare("UPDATE funcionario SET codFuncionario = :new WHERE codFuncionario = :old");
-        $update->bindValue(":old", $oldId);
-        $update->bindValue(":new", $newId);
-        $update->execute();
-    }
-
-    public function updatePosicaoFuncionarioCpf($oldId, $newId, $cpf){
-        $update = Connection::$pdo->prepare("UPDATE funcionario SET codFuncionario = :new WHERE codFuncionario = :old");
-        $update->bindValue(":old", $oldId);
-        $update->bindValue(":new", $newId);
-        $update->execute();
-
-        $update = Connection::$pdo->prepare("UPDATE funcionario SET cpf = :cpf WHERE codFuncionario = :id");
+    // Método para mudar todos os dados inseridos anteriormente na tabela funcionario
+    public function updateFuncionario($funcional,$cpf, $nome, $telefone, $endereco){
+        $update = Connection::$pdo->prepare("UPDATE funcionario SET 
+        cpf = :cpf,
+        nome = :nome,
+        telefone = :telefone,
+        endereco = :endereco 
+        WHERE funcional= :funcional");
         $update->bindValue(":cpf", $cpf);
-        $update->bindValue(":id", $newId);
+        $update->bindValue(":nome",$nome);
+        $update->bindValue(":telefone",$telefone);
+        $update->bindValue(":endereco",$endereco);
+        $update->bindValue(":funcional",$funcional);
         $update->execute();
     }
 
@@ -61,13 +49,13 @@ $functions -> updateDepartamento('Gerencia de projetos',5);
 $functions -> updateCargo('Cozinheiro',2);
 
 // O cargo “Gerente de Projetos” deve ser a linha 01 da sua tabela.
-$functions -> updatePosicaoCargo(5,1);
+$functions -> updateCargo('Gerente de Projetos',1);
 
 // O funcionario “Milton Neves” deve estar alocado na linha 04 da sua tabela.
-$functions -> updatePosicaoFuncionario(1,4);
+$functions -> updateFuncionario(4, '15878987584', 'Milton Neves', '11968558524', 'Rua Da Alegria');
 
-// A funcionaria “Etelvina Hernandez” deve estaralocada na linha 02 da sua tabela.
-$functions -> updatePosicaoFuncionario(5,2);
+// A funcionaria “Etelvina Hernandez” deve estar alocada na linha 02 da sua tabela.
+$functions -> updateFuncionario(2, '2040807584', 'Etelvina Hernandez', '11975718524', 'Rua Da Vida');
 
 // O funcionario “Rock Balboa” deve ser o registro 03 da sua tabela e possuir o cpf 888555666-00
-$functions -> updatePosicaoFuncionarioCpf(4,3,'88855566600');
+$functions -> updateFuncionario(3, '88855566600', 'Rock Balboa', '11440455824', 'Rua Da Sorte');
